@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, ToastController } from 'ionic-angular';
+import { NgForm } from '@angular/forms';
+import {
+  ReceiverOptions,
+  ShippingOptions
+} from '../../interfaces/order-form-options';
 
 /**
  * Generated class for the OrderPage page.
@@ -11,15 +16,54 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @IonicPage()
 @Component({
   selector: 'page-order',
-  templateUrl: 'order.html',
+  templateUrl: 'order.html'
 })
 export class OrderPage {
+  receiver: ReceiverOptions = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: ''
+  };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  shipping: ShippingOptions = {
+    address: '',
+    city: '',
+    country: 'United States',
+    state: '',
+    postalCode: ''
+  };
+
+  inputLabels: string[] = [
+    'First Name',
+    'Last Name',
+    'Email',
+    'Phone Number',
+    'Address',
+    'City',
+    'Country',
+    'State',
+    'Postal Code'
+  ];
+
+  isSubmitted: boolean = false;
+
+  constructor(private toastController: ToastController) {}
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Success',
+      duration: 2000,
+      position: 'center'
+    });
+    toast.present();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad OrderPage');
-  }
+  async onSubmitOrderForm(form: NgForm) {
+    this.isSubmitted = true;
 
+    if (form.valid) {
+      await this.presentToast();
+    }
+  }
 }
