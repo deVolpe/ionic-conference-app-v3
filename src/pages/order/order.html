@@ -4,6 +4,353 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  <ion-grid>
+    <ion-row align-items-center>
+      <ion-col class="header-img">
+        <ion-img src="assets/img/order-form/coupon-icon.png"></ion-img>
+      </ion-col>
 
+      <ion-col text-center class="header-left">
+        <h2 ion-text>
+          BUY 1 GET 1 50% OFF<br>
+          <span class="text-normal">Was $39.90</span><br>
+          <span class="text-underline">Now Only $29.92</span>
+        </h2>
+      </ion-col>
+
+      <ion-col class="header-img">
+        <ion-img src="assets/img/order-form/usps.jpg"></ion-img>
+      </ion-col>
+      <ion-col text-center class="header-right">
+        <h4 ion-text>
+          Your 2 X 24/7 LIP TREATMENT Will Be<br>
+          <span class="text-underline">Delivered</span> Within 7 Business Days
+        </h4>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-lg-6 col-12>
+        <ion-img src="assets/img/order-form/BSLipTreatmentWand.png" width="30em"></ion-img>
+        <h1 ion-text text-center class=" bestseller-text">
+          Limited Time <br>
+          <span class="text-normal">Also</span> FREE
+          <span class="text-normal">Shipping Today</span>
+        </h1>
+
+        <ion-list text-center no-lines class="describe">
+          <ion-item margin-vertical color="dark">
+            <h3 ion-text class="text-italic">Replenishes And Hydrates For Fuller Softer Lips
+            </h3>
+          </ion-item>
+          <ion-item class="describe-color">
+            <h3 ion-text class="text-italic">Feels Like A Silky Gloss</h3>
+          </ion-item>
+          <ion-item margin-vertical color="dark">
+            <h3 ion-text class="text-italic">Plump Your Lips Naturally And Safely</h3>
+          </ion-item>
+          <ion-item margin-vertical class="describe-color">
+            <h3 ion-text class="text-italic">
+              Cool On Contact, Thanks To Peppermint Oil
+            </h3>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+
+      <ion-col col-12 col-lg-6>
+        <ion-grid>
+          <ion-list no-lines>
+            <ion-row>
+              <ion-col no-padding>
+                <ion-item no-padding>
+                  <h2 ion-text text-center padding class="text-form-header">
+                    <span class="text-normal">Tell Us Where To Send</span> YOUR 2 X 24/7 LIP TREATMENT
+                    NORMALLY $39.90ea
+                  </h2>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col no-padding>
+                <ion-item no-padding class="border border-orange" color="light">
+                  <ion-grid>
+                    <ion-row padding>
+                      <ion-col>
+                        <h3 ion-text padding>
+                          1 Shipping
+                        </h3>
+                      </ion-col>
+                      <ion-col>
+                        <h3 ion-text padding>
+                          2. Address
+                        </h3>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col no-padding>
+                <ion-item no-padding class="border">
+                  <ion-grid>
+                    <form #orderForm="ngForm" novalidate>
+                      <ion-list no-lines no-margin no-padding>
+                        <ion-row>
+                          <ion-col no-padding>
+                            <p color="danger" padding-start no-margin
+                              [hidden]="firstname.valid || isSubmitted === false">
+                              {{ inputLabels[0] }} is required
+                            </p>
+                            <ion-item>
+                              <ion-input [(ngModel)]="receiver.firstName" name="firstname" #firstname="ngModel" required
+                                placeholder="First Name" class="form-input">
+                              </ion-input>
+                            </ion-item>
+                          </ion-col>
+                          <ion-col no-padding>
+                            <p color="danger" padding-start no-margin
+                              [hidden]="lastname.valid || isSubmitted === false">
+                              {{ inputLabels[1] }} is required
+                            </p>
+                            <ion-item>
+                              <ion-input [(ngModel)]="receiver.lastName" name="lastname" #lastname="ngModel" required
+                                placeholder="Last Name" class="form-input"></ion-input>
+                            </ion-item>
+                          </ion-col>
+                        </ion-row>
+                        <p color="danger" padding-start no-margin [hidden]="email.valid || isSubmitted === false">
+                          {{ inputLabels[2] }} is required
+                        </p>
+                        <ion-item>
+                          <ion-input [(ngModel)]="receiver.email" name="email" #email="ngModel" required type="email"
+                            placeholder="Email Address" class="form-input"></ion-input>
+                        </ion-item>
+                        <p color="danger" padding-start no-margin [hidden]="phone.valid || isSubmitted === false">
+                          {{ inputLabels[3] }} is required
+
+                        </p>
+                        <ion-item>
+                          <ion-input [(ngModel)]="receiver.phone" name="phone" #phone="ngModel" required type="tel"
+                            placeholder="Mobile Phone Number" class="form-input"></ion-input>
+                        </ion-item>
+                      </ion-list>
+                      <ion-list no-lines class="ion-no-margin ion-no-padding">
+                        <ion-list-header>
+                          <ion-label>SHIPPING
+                          </ion-label>
+                        </ion-list-header>
+                        <p color="danger" padding-start no-margin [hidden]="address.valid || isSubmitted === false">
+                          {{ inputLabels[4] }} is required
+
+                        </p>
+                        <ion-item>
+                          <ion-input [(ngModel)]="shipping.address" name="address" #address="ngModel" required
+                            placeholder="Address Line 1" class="form-input">
+                          </ion-input>
+                        </ion-item>
+                        <p color="danger" padding-start no-margin [hidden]="city.valid || isSubmitted === false">
+                          {{ inputLabels[5] }} is required
+
+                        </p>
+                        <ion-item>
+                          <ion-input [(ngModel)]="shipping.city" name="city" #city="ngModel" required placeholder="City"
+                            class="form-input">
+                          </ion-input>
+                        </ion-item>
+                        <p color="danger" padding-start no-margin [hidden]="country.valid || isSubmitted === false">
+                          {{ inputLabels[6] }} is required
+                        </p>
+                        <ion-item>
+                          <ion-input [(ngModel)]="shipping.country" name="country" #country="ngModel" required
+                            placeholder="Country" class="form-input">
+                          </ion-input>
+                        </ion-item>
+                        <ion-row>
+                          <ion-col no-padding>
+                            <p color="danger" padding-start no-margin [hidden]="state.valid || isSubmitted === false">
+                              {{ inputLabels[7] }} is required
+
+                            </p>
+                            <ion-item>
+                              <ion-input [(ngModel)]="shipping.state" name="state" #state="ngModel" required
+                                placeholder="State/Province" class="form-input">
+                              </ion-input>
+                            </ion-item>
+                          </ion-col>
+                          <ion-col no-padding>
+                            <p color="danger" padding-start no-margin
+                              [hidden]="postalcode.valid || isSubmitted === false">
+                              {{ inputLabels[8] }} is required
+                            </p>
+                            <ion-item>
+                              <ion-input [(ngModel)]="shipping.postalCode" name="postalcode" #postalcode="ngModel"
+                                required type="number" placeholder="Zip/Postal Code" class="form-input">
+                              </ion-input>
+                            </ion-item>
+                          </ion-col>
+                        </ion-row>
+                        <button ion-button (click)="onAddPaymentInfo(orderForm)" type="submit" full color="dark"
+                          padding-horizontal large>
+                          <h2>>&nbsp;&nbsp;&nbsp;&nbsp;Add Payment Information<br>
+                            <p class="privacy">USA Offer Only</p>
+                          </h2>
+                        </button>
+                        <ion-row>
+                          <ion-col text-center>
+                            <p padding class="privacy">
+                              We Respect Your Privacy & Information
+                            </p>
+                          </ion-col>
+                        </ion-row>
+                      </ion-list>
+                    </form>
+                  </ion-grid>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col no-padding>
+                <ion-item no-padding>
+                  <h2 text-center padding class="text-form-footer">
+                    Shopping Is Safe & Secure - Guaranteed
+                  </h2>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row padding-horizontal>
+              <ion-col col size-lg-2 justify-content-center class="lock">
+                <ion-img src="assets/img/order-form/secure-order-lock-02.png" class="secure-lock"></ion-img>
+              </ion-col>
+              <ion-col col col-lg-10 text-center text-lg-start>
+                <p>Secure credit card payment<br>
+                  This is a secure 256-bit SSL encrypted payment.
+                </p>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-img src="assets/img/order-form/cc.png" class="payments">
+                </ion-img>
+              </ion-col>
+            </ion-row>
+
+          </ion-list>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+
+
+
+    <ion-row>
+      <ion-col col-lg-6 col-12>
+        <ion-list no-lines>
+          <div text-center>
+            <h4 ion-text class="text-underline">Common Q&A</h4>
+          </div>
+          <ion-item>
+            <ion-label>
+              <ion-icon name="help-circle"></ion-icon>
+              <h5 ion-text float-right>
+                Where is it made?
+              </h5>
+              <p ion-text text-wrap>The product is made in the USA</p>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>
+              <ion-icon name="help-circle"></ion-icon>
+              <h5 ion-text>
+                Where is it made?
+              </h5>
+              <p ion-text text-wrap>The product is made in the USA</p>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>
+              <ion-icon name="help-circle"></ion-icon>
+              <h5 ion-text>
+                Where is it made?
+              </h5>
+              <p ion-text text-wrap>The product is made in the USA</p>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>
+              <ion-icon name="help-circle"></ion-icon>
+              <h5 ion-text>
+                Where is it made?
+              </h5>
+              <p text-wrap>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur quis magni
+                dolores, ad qui omnis quaerat iure. Necessitatibus adipisci vero, dolorem totam excepturi, nobis dicta
+                nam, illo dolore mollitia tempore.</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col col-lg-6 col-12>
+        <ion-list no-lines>
+          <div text-center>
+            <h4 class="text-underline ">What Our Customers Say</h4>
+          </div>
+
+          <ion-item>
+            <ion-label>
+              <h3>Denis</h3>
+              <ion-icon name="star-outline"></ion-icon>
+              <p text-wrap>I purchased the 24/7 lip treatment. I'm in love!! At first, I didn't think
+                it was
+                doing anything but a
+                few days later I
+                noticed my lips seemed fuller. I use it in the morning and at night and once throughout the day. It
+                really does what it
+                says. On my second order and I love this!! Just placed another order. It really makes my lips fuller!!
+              </p>
+            </ion-label>
+
+          </ion-item>
+          <ion-item>
+            <ion-label>
+              <h3>Denis</h3>
+              <ion-icon name="star-outline"></ion-icon>
+              <p text-wrap>I purchased the 24/7 lip treatment. I'm in love!! At first, I didn't think
+                it was
+                doing anything but a
+                few days later I
+                noticed my lips seemed fuller. I use it in the morning and at night and once throughout the day. It
+                really does what it
+                says. On my second order and I love this!! Just placed another order. It really makes my lips fuller!!
+              </p>
+            </ion-label>
+
+          </ion-item>
+          <ion-item>
+            <ion-label>
+              <h3>Denis</h3>
+              <ion-icon name="star-outline"></ion-icon>
+              <p text-wrap>I purchased the 24/7 lip treatment. I'm in love!! At first, I didn't think
+                it was
+                doing anything but a
+                few days later I
+                noticed my lips seemed fuller. I use it in the morning and at night and once throughout the day. It
+                really does what it
+                says. On my second order and I love this!! Just placed another order. It really makes my lips fuller!!
+              </p>
+            </ion-label>
+
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row justify-content-center align-items-center padding style="background-color:#272727; color:#fff">
+      <ion-col col-6>
+        Lorem ipsu
+      </ion-col>
+      <ion-col size-6>
+        Lorem ipsum dolor
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
