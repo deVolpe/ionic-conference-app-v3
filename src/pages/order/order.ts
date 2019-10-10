@@ -50,8 +50,8 @@ export class OrderPage {
 
   constructor(private toastController: ToastController) {}
 
-  async presentToast() {
-    const toast = await this.toastController.create({
+  presentToast() {
+    const toast = this.toastController.create({
       message: 'Success',
       duration: 2000,
       position: 'center'
@@ -59,11 +59,11 @@ export class OrderPage {
     toast.present();
   }
 
-  async onSubmitOrderForm(form: NgForm) {
+  onSubmitOrderForm(form: NgForm) {
     this.isSubmitted = true;
 
     if (form.valid) {
-      await this.presentToast();
+      this.presentToast();
     }
   }
 }
