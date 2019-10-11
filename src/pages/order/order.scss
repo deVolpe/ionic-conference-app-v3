@@ -18,21 +18,18 @@ page-order {
   .text-normal {
     font-weight: 400;
   }
-  .header-left {
-    font-size: 20px;
-  }
   .header-right {
-    line-height: 1.5;
+    line-height: 1.8;
   }
-  .bestseller-img {
-    margin: 0 auto;
-  }
-  ion-item {
-    padding: 0;
 
+  ion-item {
     .text-form-header {
       font-size: 18px;
       line-height: 1.5;
+    }
+
+    .protect {
+      color: #272727;
     }
   }
 
@@ -50,22 +47,22 @@ page-order {
     border-bottom-width: 3px;
   }
 
-  .secure-lock {
-    background: inherit;
-  }
-
   .payments {
     position: relative;
     top: -10px;
-    margin: 0 auto;
-    width: 15em;
-    height: 3em;
-    background: inherit;
+    .payments-img {
+      min-width: 15em;
+      min-height: 3em;
+    }
   }
 
   .bestseller-text {
-    font-size: 30px;
     line-height: 1.5;
+  }
+
+  .bestseller-img {
+    min-height: 30em;
+    min-width: 30em;
   }
 
   .describe {
@@ -78,6 +75,20 @@ page-order {
       display: none;
     }
 
+    .form-input {
+      font-size: 10px;
+    }
+
+    .bestseller-text {
+      font-size: 25px;
+    }
+    .btn-text {
+      font-size: 14px;
+    }
+
+    .privacy {
+      font-size: 8px;
+    }
     .payments {
       max-width: 13em;
     }

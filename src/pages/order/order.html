@@ -5,14 +5,14 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid>
-    <ion-row align-items-center justify-content-center>
-      <ion-col col col-lg-3 align-items-stretch>
-        <ion-img src="assets/imgs/order-form/coupon-icon.png" width="90" height="90" class="header-img"></ion-img>
+  <ion-grid padding>
+    <ion-row align-items-center>
+      <ion-col col col-lg-3 class="header-img">
+        <ion-img src="assets/imgs/order-form/coupon-icon.png" width="90" height="90"></ion-img>
       </ion-col>
 
-      <ion-col col-12 col-lg-3 text-center>
-        <h2 class="header-left">
+      <ion-col col-12 col-lg-3>
+        <h2 ion-text text-center class="text-bold">
           BUY 1 GET 1 50% OFF<br>
           <span class="text-normal">Was $39.90</span><br>
           <span class="text-underline">Now Only $29.92</span>
@@ -22,8 +22,8 @@
       <ion-col col col-lg-3 class="header-img">
         <ion-img src="assets/imgs/order-form/usps.jpg" width="90" height="73"></ion-img>
       </ion-col>
-      <ion-col col col-lg-3 text-center>
-        <h4 class="header-right">
+      <ion-col col col-lg-3>
+        <h4 ion-text text-center class="header-right text-bold">
           Your 2 X 24/7 LIP TREATMENT Will Be<br>
           <span class="text-underline">Delivered</span> Within 7 Business Days
         </h4>
@@ -31,15 +31,14 @@
     </ion-row>
 
     <ion-row>
-      <ion-col col-lg-6 col-12>
-        <ion-img src="assets/imgs/order-form/BSLipTreatmentWand.png" width="500" height="520" class="bestseller-img">
+      <ion-col col-lg-6 col-12 text-center>
+        <ion-img src="assets/imgs/order-form/BSLipTreatmentWand.png" class="bestseller-img">
         </ion-img>
-        <h1 ion-text text-center class="bestseller-text">
+        <h1 ion-text text-center class="bestseller-text text-bold">
           Limited Time <br>
           <span class="text-normal">Also</span> FREE
           <span class="text-normal">Shipping Today</span>
         </h1>
-
         <ion-list no-lines class="describe">
           <ion-item text-center margin-vertical color="dark">
             <h3 ion-text class="text-italic">Replenishes And Hydrates For Fuller Softer Lips
@@ -58,7 +57,6 @@
           </ion-item>
         </ion-list>
       </ion-col>
-
       <ion-col col-12 col-lg-6>
         <ion-grid>
           <ion-list no-lines>
@@ -73,17 +71,17 @@
               </ion-col>
             </ion-row>
             <ion-row>
-              <ion-col no-padding>
+              <ion-col no-padding class="border border-orange">
                 <ion-item no-padding color="light">
                   <ion-grid>
                     <ion-row>
-                      <ion-col>
-                        <h3 ion-text padding>
+                      <ion-col padding>
+                        <h3 ion-text>
                           1 Shipping
                         </h3>
                       </ion-col>
-                      <ion-col>
-                        <h3 ion-text padding>
+                      <ion-col padding>
+                        <h3 ion-text>
                           2. Address
                         </h3>
                       </ion-col>
@@ -96,9 +94,9 @@
               <ion-col no-padding>
                 <ion-grid class="border">
                   <form #orderForm="ngForm" novalidate>
-                    <ion-list no-lines padding>
+                    <ion-list no-lines padding-horizontal>
                       <ion-row>
-                        <ion-col no-padding>
+                        <ion-col>
                           <p ion-text color="danger" padding-start no-margin
                             [hidden]="firstname.valid || isSubmitted === false">
                             {{ inputLabels[0] }} is required
@@ -109,7 +107,7 @@
                             </ion-input>
                           </ion-item>
                         </ion-col>
-                        <ion-col no-padding>
+                        <ion-col>
                           <p ion-text color="danger" padding-start no-margin
                             [hidden]="lastname.valid || isSubmitted === false">
                             {{ inputLabels[1] }} is required
@@ -120,13 +118,13 @@
                           </ion-item>
                         </ion-col>
                       </ion-row>
-                      <ion-row no-lines>
-                        <ion-col no-lines>
+                      <ion-row>
+                        <ion-col>
                           <p ion-text color="danger" padding-start no-margin
                             [hidden]="email.valid || isSubmitted === false">
                             {{ inputLabels[2] }} is required
                           </p>
-                          <ion-item>
+                          <ion-item color="light">
                             <ion-input [(ngModel)]="receiver.email" name="email" #email="ngModel" required type="email"
                               placeholder="Email Address" class="form-input"></ion-input>
                           </ion-item>
@@ -138,81 +136,95 @@
                             [hidden]="phone.valid || isSubmitted === false">
                             {{ inputLabels[3] }} is required
                           </p>
-                          <ion-item>
+                          <ion-item color="light">
                             <ion-input [(ngModel)]="receiver.phone" name="phone" #phone="ngModel" required type="tel"
                               placeholder="Mobile Phone Number" class="form-input"></ion-input>
                           </ion-item>
                         </ion-col>
                       </ion-row>
                     </ion-list>
-                    <ion-list no-lines no-margin no-padding>
-                      <ion-list-header>
-                        <ion-label>SHIPPING
-                        </ion-label>
+                    <ion-list no-lines no-margin padding-horizontal>
+                      <ion-list-header no-lines no-margin>
+                        <ion-label>SHIPPING</ion-label>
                       </ion-list-header>
-                      <p ion-text padding-start no-margin color="danger"
-                        [hidden]="address.valid || isSubmitted === false">
-                        {{ inputLabels[4] }} is required
-
-                      </p>
-                      <ion-item>
-                        <ion-input [(ngModel)]="shipping.address" name="address" #address="ngModel" required
-                          placeholder="Address Line 1" class="form-input">
-                        </ion-input>
-                      </ion-item>
-                      <p ion-text color="danger" padding-start no-margin [hidden]="city.valid || isSubmitted === false">
-                        {{ inputLabels[5] }} is required
-                      </p>
-                      <ion-item>
-                        <ion-input [(ngModel)]="shipping.city" name="city" #city="ngModel" required placeholder="City"
-                          class="form-input">
-                        </ion-input>
-                      </ion-item>
-                      <p ion-text color="danger" padding-start no-margin
-                        [hidden]="country.valid || isSubmitted === false">
-                        {{ inputLabels[6] }} is required
-                      </p>
-                      <ion-item>
-                        <ion-input [(ngModel)]="shipping.country" name="country" #country="ngModel" required
-                          placeholder="Country" class="form-input">
-                        </ion-input>
-                      </ion-item>
                       <ion-row>
-                        <ion-col no-padding>
+                        <ion-col>
+                          <p ion-text padding-start no-margin color="danger"
+                            [hidden]="address.valid || isSubmitted === false">
+                            {{ inputLabels[4] }} is required
+
+                          </p>
+                          <ion-item color="light">
+                            <ion-input [(ngModel)]="shipping.address" name="address" #address="ngModel" required
+                              placeholder="Address Line 1" class="form-input">
+                            </ion-input>
+                          </ion-item>
+                        </ion-col>
+                      </ion-row>
+                      <ion-row>
+                        <ion-col>
+                          <p ion-text color="danger" padding-start no-margin
+                            [hidden]="city.valid || isSubmitted === false">
+                            {{ inputLabels[5] }} is required
+                          </p>
+                          <ion-item color="light">
+                            <ion-input [(ngModel)]="shipping.city" name="city" #city="ngModel" required
+                              placeholder="City" class="form-input">
+                            </ion-input>
+                          </ion-item>
+                        </ion-col>
+                      </ion-row>
+                      <ion-row>
+                        <ion-col>
+                          <p ion-text color="danger" padding-start no-margin
+                            [hidden]="country.valid || isSubmitted === false">
+                            {{ inputLabels[6] }} is required
+                          </p>
+                          <ion-item color="light">
+                            <ion-input [(ngModel)]="shipping.country" name="country" #country="ngModel" required
+                              placeholder="Country" class="form-input">
+                            </ion-input>
+                          </ion-item>
+                        </ion-col>
+                      </ion-row>
+                      <ion-row>
+                        <ion-col>
                           <p ion-text color="danger" padding-start no-margin
                             [hidden]="state.valid || isSubmitted === false">
                             {{ inputLabels[7] }} is required
 
                           </p>
-                          <ion-item no-lines>
+                          <ion-item color="light">
                             <ion-input [(ngModel)]="shipping.state" name="state" #state="ngModel" required
                               placeholder="State/Province" class="form-input">
                             </ion-input>
                           </ion-item>
                         </ion-col>
-                        <ion-col no-padding>
+                        <ion-col>
                           <p ion-text color="danger" padding-start no-margin
                             [hidden]="postalcode.valid || isSubmitted === false">
                             {{ inputLabels[8] }} is required
                           </p>
-                          <ion-item>
+                          <ion-item color="light">
                             <ion-input [(ngModel)]="shipping.postalCode" name="postalcode" #postalcode="ngModel"
                               required placeholder="Zip/Postal Code" class="form-input">
                             </ion-input>
                           </ion-item>
                         </ion-col>
                       </ion-row>
-                      <ion-row no-padding>
-                        <button ion-button (click)="onSubmitOrderForm(orderForm)" type="submit" full color="dark" large
-                          padding-horizontal>
-                          <p ion-text>>&nbsp;&nbsp;&nbsp;&nbsp;Add Payment Information<br>
-                            <span class="privacy">USA Offer Only</span>
-                          </p>
-                        </button>
+                      <ion-row>
+                        <ion-col>
+                          <button ion-button (click)="onSubmitOrderForm(orderForm)" type="submit" full color="dark"
+                            large padding-horizontal>
+                            <p ion-text class="btn-text">>&nbsp;&nbsp;&nbsp;&nbsp;Add Payment Information<br>
+                              <span class="privacy">USA Offer Only</span>
+                            </p>
+                          </button>
+                        </ion-col>
                       </ion-row>
                       <ion-row>
-                        <ion-col text-center>
-                          <p ion-text no-padding class="privacy">
+                        <ion-col>
+                          <p ion-text text-center no-padding class="privacy">
                             We Respect Your Privacy & Information
                           </p>
                         </ion-col>
@@ -226,36 +238,33 @@
             <ion-row>
               <ion-col no-padding>
                 <ion-item no-padding color="protect">
-                  <h2 ion-text text-center text-wrap padding class="text-bold">
+                  <h2 ion-text text-center text-wrap class="text-bold protect">
                     Shopping Is Safe & Secure - Guaranteed
                   </h2>
                 </ion-item>
               </ion-col>
             </ion-row>
             <ion-row padding-horizontal>
-              <ion-col col-12 col-lg-2 class="lock">
-                <ion-img justify-content-center src="assets/imgs/order-form/secure-order-lock-02.png" width="20"
-                  class="secure-lock"></ion-img>
+              <ion-col col-12 col-lg-2 text-center text-lg-start>
+                <ion-img no-margin src="assets/imgs/order-form/secure-order-lock-02.png" width="60" height="70">
+                </ion-img>
               </ion-col>
               <ion-col col-12 col-lg-10>
-                <p ion-text text-center text-lg-start>Secure credit card payment<br>
+                <p ion-text no-margin text-center text-lg-start>Secure credit card payment<br>
                   This is a secure 256-bit SSL encrypted payment.
                 </p>
               </ion-col>
             </ion-row>
             <ion-row>
               <ion-col class="payments">
-                <ion-img src="assets/imgs/order-form/cc.png">
+                <ion-img src="assets/imgs/order-form/cc.png" class="payments-img">
                 </ion-img>
               </ion-col>
             </ion-row>
-
           </ion-list>
         </ion-grid>
       </ion-col>
     </ion-row>
-
-
 
     <ion-row>
       <ion-col col-lg-6 col-12>
