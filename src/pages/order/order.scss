@@ -23,12 +23,12 @@ page-order {
   }
 
   ion-item {
-    .text-form-header {
+    .text-offer {
       font-size: 18px;
       line-height: 1.5;
     }
 
-    .protect {
+    .text-protect {
       color: #272727;
     }
   }
@@ -49,7 +49,7 @@ page-order {
 
   .payments {
     position: relative;
-    top: -10px;
+    top: -15px;
     .payments-img {
       min-width: 15em;
       min-height: 3em;
@@ -61,7 +61,7 @@ page-order {
   }
 
   .bestseller-img {
-    min-height: 30em;
+    min-height: 37.5em;
     min-width: 30em;
   }
 
@@ -73,6 +73,11 @@ page-order {
     .header-img,
     .header-right {
       display: none;
+    }
+
+    .bestseller-img {
+      min-width: 23em;
+      min-height: 23em;
     }
 
     .form-input {
@@ -90,7 +95,7 @@ page-order {
       font-size: 8px;
     }
     .payments {
-      max-width: 13em;
+      max-width: 23em;
     }
     // ion-hide-lg-down doesn't work
     .describe {
