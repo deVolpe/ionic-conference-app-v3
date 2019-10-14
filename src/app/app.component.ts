@@ -13,7 +13,7 @@ import { OrderPage } from '../pages/order/order';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = OrderPage;
 
   pages: Array<{ title: string; component: any }>;
 
