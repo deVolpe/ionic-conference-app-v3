@@ -1,12 +1,80 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Order Page</ion-title>
-  </ion-navbar>
+	<ion-navbar>
+		<ion-title>Order Page</ion-title>
+	</ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-grid padding>
-    <ion-row align-items-center>
+<ion-content class="container">
+	<ion-grid>
+		<ion-row>
+			<ion-col col-12 col-lg-6>
+				<ion-grid no-padding>
+					<ion-row>
+						<ion-col col-3>
+							<ion-img src="assets/imgs/order-form/coupon-icon.png" class="coupon-img"></ion-img>
+						</ion-col>
+						<ion-col col-12 col-lg-9 text-center>
+							<div class="discount-text">
+								<p><b>BUY 1 GET 1 50% OFF</b></p>
+								<p>Was $39.90</p>
+								<p><b><u>Now Only $29.92</u></b> </p>
+							</div>
+						</ion-col>
+					</ion-row>
+					<ion-row ion-margin-bottom>
+						<ion-col col-12 no-padding text-center>
+							<img src="assets/imgs/order-form/BSLipTreatmentWand.png" />
+						</ion-col>
+						<ion-col col-12 text-center>
+							<div class="product-description">
+								<p>
+									<b>Limited Time</b>
+								</p>
+								<p>Also <b><u>FREE</u></b> Shipping Today</p>
+							</div>
+						</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col col-12>
+							<ion-list no-lines>
+								<ion-item *ngFor="let bar of bars" margin-vertical>
+									<div [class.color-bar]="bar.isColored" [class.balck-bar]="!bar.isColored">
+										<p>{{ bar.text }}</p>
+									</div>
+								</ion-item>
+							</ion-list>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</ion-col>
+			<ion-col col-12 col-lg-6>
+				<ion-grid no-padding>
+					<ion-row>
+						<ion-col col-3>
+							<ion-img src="assets/imgs/order-form/usps.jpg" class="delivery-img"></ion-img>
+						</ion-col>
+						<ion-col col-lg-9 text-right>
+							<div class="delivery-info">
+								<p><b>Your 2 X 24/7 LIP TREATMENT Will Be</b></p>
+								<p><b><u>Delivered</u> Within 7 Business Days </b></p>
+							</div>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>
+
+
+
+
+
+
+<!-- 
+
+
+  <ion-row align-items-center>
       <ion-col col col-lg-3 class="header-img">
         <ion-img src="assets/imgs/order-form/coupon-icon.png" width="90" height="90"></ion-img>
       </ion-col>
@@ -237,10 +305,10 @@
 
             <ion-row>
               <ion-col no-padding>
-                <ion-item no-padding color="protect">
-                  <h2 ion-text text-center text-wrap class="text-bold text-protect">
+                <ion-item color="protect">
+                  <h1 ion-text text-center text-wrap class="text-bold text-protect">
                     Shopping Is Safe & Secure - Guaranteed
-                  </h2>
+                  </h1>
                 </ion-item>
               </ion-col>
             </ion-row>
@@ -368,13 +436,14 @@
     </ion-row>
 
     <ion-row align-items-center padding style="background-color:#272727;color:#fff">
-      <ion-col col-6>
-        <p ion-text text-center text-wrap>Lorem ipsum.
+      <ion-col col-12 col-lg-12 col-xl-6>
+        <p ion-text text-center text-wrap>CATE MCNABB © 2019. All Rights Reserved
         </p>
       </ion-col>
-      <ion-col size-6>
-        <p ion-text text-center text-wrap>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+      <ion-col col-12 col-lg-12 col-xl-6>
+        <p ion-text text-center text-wrap class="">Contact | Privacy Policy | Terms & Conditions | Customer Service
+          Phone:+1
+          (815) 900 7305 - Text: +1 (312) 626 9507</p>
       </ion-col>
     </ion-row>
-  </ion-grid>
-</ion-content>
+ -->

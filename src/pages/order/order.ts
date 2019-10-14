@@ -46,6 +46,19 @@ export class OrderPage {
     'Postal Code'
   ];
 
+  bars: object[] = [
+    {
+      text: 'Replenishes and hydrates for fuller softer lips',
+      isColored: false
+    },
+    {
+      text: 'Feels like a silky gloss',
+      isColored: true
+    },
+    { text: 'Plump your lips naturally and safely', isColored: false },
+    { text: 'Feels cool on contact, thanks to peppermint oil', isColored: true }
+  ];
+
   isSubmitted: boolean = false;
 
   constructor(private toastController: ToastController) {}
