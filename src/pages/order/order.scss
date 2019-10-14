@@ -1,5 +1,5 @@
 page-order {
-  $background_style: #dba49e;
+  $background_style: #dfb7b5;
 
   @mixin img-size($width, $height) {
     height: $height;
@@ -33,7 +33,7 @@ page-order {
             @include img-size(90px, 90px);
           }
           &.delivery-img {
-            @include img-size(80px, 80px);
+            @include img-size(99px, 80px);
           }
           @media (max-width: 991px) {
             &.delivery-img,
@@ -42,11 +42,25 @@ page-order {
             }
           }
         }
+        ion-list {
+          ion-item {
+            .color-bar {
+              background-color: $background_style;
+            }
+            .black-bar {
+              background-color: #272727;
+            }
+          }
+        }
         @media (max-width: 991px) {
           .delivery-info {
             display: none;
           }
         }
+      }
+      &.footer {
+        background-color: #272727;
+        color: #fff;
       }
     }
   }
