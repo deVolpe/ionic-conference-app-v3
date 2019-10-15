@@ -9,62 +9,151 @@ page-order {
   p {
     margin: 0;
   }
+  ion-img {
+    background: inherit;
+  }
 
-  ion-grid {
-    ion-row {
-      ion-col {
-        .discount-text {
-          line-height: 30px;
-          font: {
-            size: 30px;
-          }
-        }
-        .delivery-info {
-          p {
-            font-size: 24px;
-          }
-        }
-        .product-description {
-          font-size: 32px;
-        }
-        ion-img {
-          background: inherit;
-          &.coupon-img {
-            @include img-size(90px, 90px);
-          }
-          &.delivery-img {
-            @include img-size(99px, 80px);
-          }
-          @media (max-width: 991px) {
-            &.delivery-img,
-            &.coupon-img {
-              display: none;
+  ion-content {
+    ion-grid {
+      ion-row {
+        ion-grid {
+          &.product-description-grid {
+            ion-row {
+              ion-col {
+                .discount-text {
+                  line-height: 30px;
+                  font: {
+                    size: 30px;
+                  }
+                }
+                .product-description {
+                  font-size: 32px;
+                }
+                ion-img {
+                  &.coupon-img {
+                    @include img-size(90px, 90px);
+                  }
+                  @media (max-width: 991px) {
+                    &.coupon-img {
+                      display: none;
+                    }
+                  }
+                }
+              }
+              &.color-bars {
+                font-size: 22px;
+                font-style: italic;
+                line-height: 22px;
+                ion-col {
+                  margin: 8px 0;
+                  color: #fff;
+                  &.colored {
+                    background-color: $background_style;
+                  }
+                  &.black {
+                    background-color: #272727;
+                  }
+                  &.colored,
+                  &.black {
+                    p {
+                      margin: 12px;
+                    }
+                  }
+                }
+              }
+              @media (max-width: 991px) {
+                &.color-bars {
+                  display: none;
+                }
+              }
             }
           }
-        }
-        ion-list {
-          ion-item {
-            .color-bar {
-              background-color: $background_style;
-            }
-            .black-bar {
-              background-color: #272727;
+          &.slide-header-grid {
+            ion-row {
+              &.delivery-section {
+                ion-col {
+                  .delivery-info {
+                    p {
+                      font-size: 24px;
+                    }
+                  }
+                  @media (max-width: 991px) {
+                    .delivery-info {
+                      display: none;
+                    }
+                  }
+                  ion-img {
+                    &.delivery-img {
+                      @include img-size(99px, 80px);
+                    }
+                    @media (max-width: 991px) {
+                      &.delivery-img {
+                        display: none;
+                      }
+                    }
+                  }
+                }
+                &.form-navigation {
+                  ion-col {
+                    ion-row {
+                      &.orange-image {
+                      }
+                    }
+                  }
+                }
+              }
+
+              ion-col {
+                p {
+                  margin: 0;
+                  font-size: 24px;
+                  &.form-header {
+                    color: #fff;
+                    background-color: $background_style;
+                    padding: 15px 5px 25px 5px;
+                  }
+                }
+              }
             }
           }
-        }
-        @media (max-width: 991px) {
-          .delivery-info {
-            display: none;
+          &.order-form-grid {
+            &[no-padding] {
+              ion-row {
+                border: 2px solid #ddd;
+                ion-col {
+                  ion-slides {
+                    ion-slide {
+                      ion-row {
+                        p {
+                          &.privacy {
+                            font-size: 12px;
+                            color: #9c9c9c;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
-      &.footer {
+    }
+    ion-row {
+      &.footer-row {
         background-color: #272727;
         color: #fff;
       }
     }
   }
 }
+
+// padding: 5px 10px 0 10px;
+//     border-top-left-radius: 3px;
+//     border-top-right-radius: 3px;
+//     border: 2px solid #ddd;
+//     border-bottom: 4px solid #ff7400;
 
 // ion-img {
 //   background: inherit;

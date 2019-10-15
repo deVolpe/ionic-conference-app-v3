@@ -4,11 +4,11 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="container">
+<ion-content>
   <ion-grid>
     <ion-row>
       <ion-col col-12 col-lg-6>
-        <ion-grid no-padding>
+        <ion-grid no-padding class="product-description-grid">
           <ion-row>
             <ion-col col-3>
               <ion-img src="assets/imgs/order-form/coupon-icon.png" class="coupon-img"></ion-img>
@@ -21,7 +21,7 @@
               </div>
             </ion-col>
           </ion-row>
-          <ion-row ion-margin-bottom>
+          <ion-row margin-bottom>
             <ion-col col-12 no-padding text-center>
               <img src="assets/imgs/order-form/BSLipTreatmentWand.png" />
             </ion-col>
@@ -34,22 +34,25 @@
               </div>
             </ion-col>
           </ion-row>
-          <ion-row>
-            <ion-col col-12>
-              <ion-list no-lines>
-                <ion-item *ngFor="let bar of bars" margin-vertical text-center>
-                  <div [class.color-bar]="bar.isColored" [class.black-bar]="!bar.isColored">
-                    <p>{{ bar.text }}</p>
-                  </div>
-                </ion-item>
-              </ion-list>
+          <ion-row class="color-bars">
+            <ion-col col-12 text-center class="black">
+              <p text-capitalize> replenishes and hydrates for fuller softer lips</p>
+            </ion-col>
+            <ion-col col-12 text-center class="colored">
+              <p text-capitalize>feels like a silky gloss</p>
+            </ion-col>
+            <ion-col col-12 text-center class="black">
+              <p text-capitalize>plump your lips naturally and safely</p>
+            </ion-col>
+            <ion-col col-12 text-center class="colored">
+              <p text-capitalize>feels cool on contact, thanks to peppermint oil</p>
             </ion-col>
           </ion-row>
         </ion-grid>
       </ion-col>
       <ion-col col-12 col-lg-6>
-        <ion-grid no-padding>
-          <ion-row>
+        <ion-grid no-padding class="slide-header-grid">
+          <ion-row class="delivery-section" no-padding margin-bottom>
             <ion-col col-3>
               <ion-img src="assets/imgs/order-form/usps.jpg" class="delivery-img"></ion-img>
             </ion-col>
@@ -60,19 +63,96 @@
               </div>
             </ion-col>
           </ion-row>
+          <ion-row no-padding>
+            <ion-col col-12 no-padding text-center>
+              <p class="form-header">
+                <span text-capitalize>
+                  tell us where to send
+                </span>
+                <b>
+                  <span text-uppercase>
+                    your 2 x 24/7 LIP TREATMENT normally
+                    $39.90</span>ea
+                </b>
+              </p>
+            </ion-col>
+          </ion-row>
+          <ion-row class="form-navigation" no-padding>
+            <ion-col col-6 no-padding></ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-grid class="order-form-grid" no-padding>
+          <ion-row no-padding>
+            <ion-col col-12>
+              <ion-slides effect="fade">
+                <ion-slide>
+                  <form #orderForm="ngForm" novalidate>
+                    <ion-segment>
+                      <div class="order-form-errors">
+                        <p ion-text [hidden]="firstname.valid || isSubmitted === false" color="danger">
+                          {{ inputLabels[0] }} required
+                        </p>
+                        <p ion-text [hidden]="lastname.valid || isSubmitted === false" color="danger">
+                          {{ inputLabels[1] }} required
+                        </p>
+                      </div>
+                    </ion-segment>
+                    <ion-segment>
+                      <ion-input [(ngModel)]="receiver.firstName" name="firstname" #firstname="ngModel" type="text"
+                        [placeholder]="inputLabels[0]" required>
+                      </ion-input>
+                      <ion-input [(ngModel)]="receiver.LastName" name="lastname" #lastname="ngModel" type="text"
+                        [placeholder]="inputLabels[1]" required>
+                      </ion-input>
+                    </ion-segment>
+                    <div class="order-form-errors">
+                      <p ion-text [hidden]="email.valid || isSubmitted === false" color="danger">
+                        {{ inputLabels[2] }} required
+                      </p>
+                    </div>
+                    <ion-input [(ngModel)]="receiver.email" name="email" #email="ngModel" type="email"
+                      [placeholder]="inputLabels[2]"></ion-input>
+                    <div class="order-form-errors">
+                      <p ion-text [hidden]="phone.valid || isSubmitted === false" color="danger">
+                        {{ inputLabels[3] }} required
+                      </p>
+                    </div>
+                    <ion-input [(ngModel)]="receiver.phone" name="phone" #phone="ngModel" type="tel"
+                      [placeholder]="inputLabels[3]"></ion-input>
+
+                    <ion-row class="divider">
+                      <ion-col col-12></ion-col>
+                    </ion-row>
+
+                    <button ion-button (click)="onClick()">
+                      <ion-icon slot="start" name="arrow-forward" margin-right full></ion-icon>
+                      <p>Add Payment Information</p>
+                    </button>
+                  </form>
+                  <ion-row no-padding>
+                    <ion-col col-12>
+                      <p class="privacy" text-capitalize>
+                        we respect your privacy & information
+                      </p>
+                    </ion-col>
+                  </ion-row>
+                </ion-slide>
+              </ion-slides>
+            </ion-col>
+
+          </ion-row>
         </ion-grid>
       </ion-col>
     </ion-row>
-
-    <ion-row margin-top text-center padding class="footer">
-      <ion-col col-12 col-lg-12 col-xl-6 padding>
-        CATE MCNABB © 2019. All Rights Reserved
-      </ion-col>
-      <ion-col col-12 col-lg-12 col-xl-6>
-
-      </ion-col>
-    </ion-row>
   </ion-grid>
+  <ion-row margin-top text-center padding class="footer-row">
+    <ion-col col-12 col-lg-12 col-xl-6 padding>
+      CATE MCNABB © 2019. All Rights Reserved
+    </ion-col>
+    <ion-col col-12 col-lg-12 col-xl-6>
+      fdsuygdusyagfuygasdiuyfgidyausgfyu
+    </ion-col>
+  </ion-row>
 </ion-content>
 
 
