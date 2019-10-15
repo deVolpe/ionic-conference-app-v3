@@ -13,6 +13,12 @@ page-order {
     background: inherit;
   }
 
+  .container {
+    margin: 0 auto;
+    max-width: 1140px;
+    min-width: 320;
+  }
+
   ion-content {
     ion-grid {
       ion-row {
@@ -94,6 +100,7 @@ page-order {
                   }
                 }
                 &.form-navigation {
+                  border: 2px solid #ddd;
                   ion-col {
                     ion-row {
                       &.orange-image {
@@ -117,8 +124,8 @@ page-order {
             }
           }
           &.order-form-grid {
-            &[no-padding] {
-              ion-row {
+            ion-row {
+              &.form-border {
                 border: 2px solid #ddd;
                 ion-col {
                   ion-slides {

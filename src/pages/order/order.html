@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid>
+  <ion-grid class="container">
     <ion-row>
       <ion-col col-12 col-lg-6>
         <ion-grid no-padding class="product-description-grid">
@@ -17,7 +17,7 @@
               <div class="discount-text">
                 <p><b>BUY 1 GET 1 50% OFF</b></p>
                 <p>Was $39.90</p>
-                <p><b><u>Now Only $29.92</u></b> </p>
+                <p><b><u>Now Only $29.92</u></b></p>
               </div>
             </ion-col>
           </ion-row>
@@ -30,7 +30,7 @@
                 <p>
                   <b>Limited Time</b>
                 </p>
-                <p>Also <b><u>FREE</u></b> Shipping Today</p>
+                <p>Also<b><u>FREE</u></b>Shipping Today</p>
               </div>
             </ion-col>
           </ion-row>
@@ -82,8 +82,8 @@
           </ion-row>
         </ion-grid>
         <ion-grid class="order-form-grid" no-padding>
-          <ion-row no-padding>
-            <ion-col col-12>
+          <ion-row no-padding class="form-border">
+            <ion-col col-12 padding>
               <ion-slides effect="fade">
                 <ion-slide>
                   <form #orderForm="ngForm" novalidate>
@@ -121,12 +121,15 @@
                       [placeholder]="inputLabels[3]"></ion-input>
 
                     <ion-row class="divider">
-                      <ion-col col-12></ion-col>
+                      <ion-col col-3 col-lg-2 col-md-2 col-sm-3 text-left no-padding>
+                        <p text-uppercase>shipping</p>
+                      </ion-col>
                     </ion-row>
 
-                    <button ion-button (click)="onClick()">
-                      <ion-icon slot="start" name="arrow-forward" margin-right full></ion-icon>
-                      <p>Add Payment Information</p>
+                    <button ion-button (click)="onClick()" color="dark" full large padding-horizontal type="submit">
+                      <ion-icon slot="start" name="arrow-forward" margin-right></ion-icon>
+                      <p ion-text>Add Payment Information</p>
+                      <p ion-text class="block">Usa Offer Only</p>
                     </button>
                   </form>
                   <ion-row no-padding>
@@ -145,7 +148,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-row margin-top text-center padding class="footer-row">
+  <ion-row margin-top text-center padding class="footer-row container">
     <ion-col col-12 col-lg-12 col-xl-6 padding>
       CATE MCNABB © 2019. All Rights Reserved
     </ion-col>
