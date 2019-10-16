@@ -8,14 +8,13 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { OrderPage } from '../pages/order/order';
-import { ComponentsModule } from '../components/components.module';
+import { OrderPageModule } from '../pages/order/order.module';
 
 @NgModule({
-  declarations: [MyApp, HomePage, ListPage, OrderPage],
-  imports: [BrowserModule, IonicModule.forRoot(MyApp), ComponentsModule],
+  declarations: [MyApp, HomePage, ListPage],
+  imports: [BrowserModule, IonicModule.forRoot(MyApp), OrderPageModule],
   bootstrap: [IonicApp],
-  entryComponents: [MyApp, HomePage, ListPage, OrderPage],
+  entryComponents: [MyApp, HomePage, ListPage],
   providers: [
     StatusBar,
     SplashScreen,

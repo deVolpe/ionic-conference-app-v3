@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
-import { OrderFormComponent } from './order-form/order-form';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { IonicModule } from 'ionic-angular';
+import { IonicPageModule } from 'ionic-angular';
+import { CommonQaComponent } from './common-qa/common-qa';
+import { OrderFormComponent } from './order-form/order-form';
+import { ReviewsComponent } from './reviews/reviews';
 
 @NgModule({
-  declarations: [OrderFormComponent],
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    IonicModule.forRoot(OrderFormComponent)
-  ],
-  exports: [OrderFormComponent]
+  declarations: [OrderFormComponent, CommonQaComponent,
+    ReviewsComponent],
+  imports: [FormsModule, ReactiveFormsModule, IonicPageModule],
+  exports: [OrderFormComponent, CommonQaComponent,
+    ReviewsComponent]
 })
 export class ComponentsModule {}
