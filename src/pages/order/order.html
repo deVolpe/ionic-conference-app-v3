@@ -30,7 +30,7 @@
                 <p>
                   <b>Limited Time</b>
                 </p>
-                <p>Also<b><u>FREE</u></b>Shipping Today</p>
+                <p>Also<b> FREE </b>Shipping Today</p>
               </div>
             </ion-col>
           </ion-row>
@@ -51,7 +51,7 @@
         </ion-grid>
       </ion-col>
       <ion-col col-12 col-lg-6>
-        <ion-grid no-padding class="slide-header-grid">
+        <ion-grid no-padding class="slider-header-grid">
           <ion-row class="delivery-section" no-padding margin-bottom>
             <ion-col col-3>
               <ion-img src="assets/imgs/order-form/usps.jpg" class="delivery-img"></ion-img>
@@ -83,55 +83,10 @@
         </ion-grid>
         <ion-grid class="order-form-grid" no-padding>
           <ion-row no-padding class="form-border">
-            <ion-col col-12 padding>
+            <ion-col col-12>
               <ion-slides effect="fade">
                 <ion-slide>
-                  <form #orderForm="ngForm" novalidate>
-                    <ion-segment>
-                      <div class="order-form-errors">
-                        <p ion-text [hidden]="firstname.valid || isSubmitted === false" color="danger">
-                          {{ inputLabels[0] }} required
-                        </p>
-                        <p ion-text [hidden]="lastname.valid || isSubmitted === false" color="danger">
-                          {{ inputLabels[1] }} required
-                        </p>
-                      </div>
-                    </ion-segment>
-                    <ion-segment>
-                      <ion-input [(ngModel)]="receiver.firstName" name="firstname" #firstname="ngModel" type="text"
-                        [placeholder]="inputLabels[0]" required>
-                      </ion-input>
-                      <ion-input [(ngModel)]="receiver.LastName" name="lastname" #lastname="ngModel" type="text"
-                        [placeholder]="inputLabels[1]" required>
-                      </ion-input>
-                    </ion-segment>
-                    <div class="order-form-errors">
-                      <p ion-text [hidden]="email.valid || isSubmitted === false" color="danger">
-                        {{ inputLabels[2] }} required
-                      </p>
-                    </div>
-                    <ion-input [(ngModel)]="receiver.email" name="email" #email="ngModel" type="email"
-                      [placeholder]="inputLabels[2]"></ion-input>
-                    <div class="order-form-errors">
-                      <p ion-text [hidden]="phone.valid || isSubmitted === false" color="danger">
-                        {{ inputLabels[3] }} required
-                      </p>
-                    </div>
-                    <ion-input [(ngModel)]="receiver.phone" name="phone" #phone="ngModel" type="tel"
-                      [placeholder]="inputLabels[3]"></ion-input>
-
-                    <ion-row class="divider">
-                      <ion-col col-3 col-lg-2 col-md-2 col-sm-3 text-left no-padding>
-                        <p text-uppercase>shipping</p>
-                      </ion-col>
-                    </ion-row>
-
-                    <button ion-button (click)="onClick()" color="dark" full large padding-horizontal type="submit">
-                      <ion-icon slot="start" name="arrow-forward" margin-right></ion-icon>
-                      <p ion-text>Add Payment Information</p>
-                      <p ion-text class="block">Usa Offer Only</p>
-                    </button>
-                  </form>
+                  <order-form></order-form>
                   <ion-row no-padding>
                     <ion-col col-12>
                       <p class="privacy" text-capitalize>
@@ -142,7 +97,23 @@
                 </ion-slide>
               </ion-slides>
             </ion-col>
-
+          </ion-row>
+        </ion-grid>
+        <ion-grid class="slider-footer-grid" no-padding>
+          <ion-row>
+            <ion-col col-12 text-center class="header">
+              <p text-capitalize>shopping is safe & secure - guaranteed</p>
+            </ion-col>
+          </ion-row>
+          <ion-row class="secure">
+            <ion-col col-12 col-lg-2></ion-col>
+            <ion-col col-12 col-lg-10 text-lg-left text-center>
+              <p>Secure credit card payment</p>
+              <p>This is a secure 256-bit SSL encrypted payment.</p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-12></ion-col>
           </ion-row>
         </ion-grid>
       </ion-col>
@@ -156,6 +127,7 @@
       fdsuygdusyagfuygasdiuyfgidyausgfyu
     </ion-col>
   </ion-row>
+  <order-form></order-form>
 </ion-content>
 
 

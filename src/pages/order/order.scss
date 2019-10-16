@@ -6,6 +6,11 @@ page-order {
     width: $width;
   }
 
+  %p-style {
+    font-size: 24px;
+    margin: 0;
+  }
+
   p {
     margin: 0;
   }
@@ -16,7 +21,7 @@ page-order {
   .container {
     margin: 0 auto;
     max-width: 1140px;
-    min-width: 320;
+    min-width: 320px;
   }
 
   ion-content {
@@ -74,28 +79,18 @@ page-order {
               }
             }
           }
-          &.slide-header-grid {
+          &.slider-header-grid {
             ion-row {
               &.delivery-section {
                 ion-col {
                   .delivery-info {
                     p {
-                      font-size: 24px;
-                    }
-                  }
-                  @media (max-width: 991px) {
-                    .delivery-info {
-                      display: none;
+                      @extend %p-style;
                     }
                   }
                   ion-img {
                     &.delivery-img {
                       @include img-size(99px, 80px);
-                    }
-                    @media (max-width: 991px) {
-                      &.delivery-img {
-                        display: none;
-                      }
                     }
                   }
                 }
@@ -109,11 +104,14 @@ page-order {
                   }
                 }
               }
-
+              @media (max-width: 991px) {
+                &.delivery-section {
+                  display: none;
+                }
+              }
               ion-col {
                 p {
-                  margin: 0;
-                  font-size: 24px;
+                  @extend %p-style;
                   &.form-header {
                     color: #fff;
                     background-color: $background_style;
@@ -144,13 +142,25 @@ page-order {
               }
             }
           }
+          &.slider-footer-grid {
+            ion-row {
+              ion-col {
+                &.header {
+                  p {
+                    background-color: #6ac8b3;
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
     ion-row {
       &.footer-row {
-        background-color: #272727;
+        background-color: #303030;
         color: #fff;
+        font-size: 13px;
       }
     }
   }

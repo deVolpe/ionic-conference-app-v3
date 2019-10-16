@@ -19,21 +19,6 @@ import {
   templateUrl: 'order.html'
 })
 export class OrderPage {
-  receiver: ReceiverOptions = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: ''
-  };
-
-  shipping: ShippingOptions = {
-    address: '',
-    city: '',
-    country: 'United States',
-    state: '',
-    postalCode: ''
-  };
-
   inputLabels: string[] = [
     'First Name',
     'Last Name',
@@ -54,16 +39,8 @@ export class OrderPage {
     const toast = this.toastController.create({
       message: 'Success',
       duration: 2000,
-      position: 'center'
+      position: 'top'
     });
     toast.present();
-  }
-
-  onSubmitOrderForm(form: NgForm) {
-    this.isSubmitted = true;
-
-    if (form.valid) {
-      this.presentToast();
-    }
   }
 }
