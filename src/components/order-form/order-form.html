@@ -1,47 +1,73 @@
-<form [formGroup]="form">
+<form [formGroup]="form" n>
   <ion-segment>
     <div class="order-form-errors">
-      <p ion-text [hidden]="firstname.valid || isSubmitted === false" color="danger">
-        {{ inputLabels[0] }} required
-      </p>
+      <p ion-text text-left color="danger"></p>
     </div>
     <div class="order-form-errors">
-      <p ion-text [hidden]="lastname.valid || isSubmitted === false" color="danger">
-        {{ inputLabels[1] }} required
-      </p>
+      <p ion-text text-left color="danger"></p>
     </div>
   </ion-segment>
   <ion-segment>
-    <ion-input formControlName="firstName" type="text" [placeholder]="inputLabels[0]" required>
+    <ion-input formControlName="firstName" type="text" placeholder="First Name">
     </ion-input>
-    <ion-input [(ngModel)]="receiver.lastName" name="lastname" #lastname="ngModel" type="text"
-      [placeholder]="inputLabels[1]" required>
+    <ion-input formControlName="lastName" type="text" placeholder="Last Name">
     </ion-input>
   </ion-segment>
   <div class="order-form-errors">
-    <p ion-text [hidden]="email.valid || isSubmitted === false" color="danger">
-      {{ inputLabels[2] }} required
-    </p>
+    <p ion-text text-left color="danger"></p>
   </div>
-  <ion-input [(ngModel)]="receiver.email" name="email" #email="ngModel" type="email" [placeholder]="inputLabels[2]">
+  <ion-input formControlName="email" type="email" placeholder="Email Address">
   </ion-input>
-  <div class="order-form-errorss">
-    <p ion-text [hidden]="phone.valid || isSubmitted === false" color="danger">
-      {{ inputLabels[3] }} required
-    </p>
+  <div class="order-form-errors">
+    <p ion-text text-left color="danger"></p>
   </div>
-  <ion-input [(ngModel)]="receiver.phone" name="phone" #phone="ngModel" type="tel" [placeholder]="inputLabels[3]">
+  <ion-input formControlName="phone" type="tel" placeholder="Mobile Phone Number">
   </ion-input>
-
+  <ion-row>
+    <ion-col col-12 no-padding text-left>
+      <p class="phone-info" text-capitalize>* mobile phone number used to provide tracking information</p>
+    </ion-col>
+  </ion-row>
   <ion-row class="divider">
     <ion-col col-3 col-lg-2 col-md-2 col-sm-3 text-left no-padding>
       <p text-uppercase>shipping</p>
     </ion-col>
+    <ion-col align-self-center col-9 col-lg-10 col-md-11 col-sm-10 no-padding>
+      <hr>
+    </ion-col>
   </ion-row>
-
-  <button ion-button (click)="onSubmitOrderForm(orderForm)" color="dark" full large padding-horizontal type="submit">
+  <div class="order-form-errors">
+    <p ion-text text-left color="danger"></p>
+  </div>
+  <ion-input formControlName="address" type="text" placeholder="Address Line 1" no-padding>
+  </ion-input>
+  <div class="order-form-errors">
+    <p ion-text text-left color="danger"></p>
+  </div>
+  <ion-input formControlName="city" type="text" placeholder="City">
+  </ion-input>
+  <div class="order-form-errors">
+    <p ion-text text-left color="danger"></p>
+  </div>
+  <ion-input formControlName="country" type="text" placeholder="Coutry">
+  </ion-input>
+  <ion-segment>
+    <div class="order-form-errors">
+      <p ion-text text-left color="danger"></p>
+    </div>
+    <div class="order-form-errors">
+      <p ion-text text-left color="danger"></p>
+    </div>
+  </ion-segment>
+  <ion-segment>
+    <ion-input formControlName="state" type="text" placeholder="State/Province" no-padding>
+    </ion-input>
+    <ion-input formControlName="postalCode" type="text" placeholder="Zip/Postal" no-padding>
+    </ion-input>
+  </ion-segment>
+  <button ion-button color="dark" full large padding-horizontal type="submit">
     <ion-icon slot="start" name="arrow-forward" margin-right></ion-icon>
-    <p ion-text>Add Payment Information</p>
-    <p ion-text class="block">Usa Offer Only</p>
+    <span>Add Payment Information</span>
+    <span class="block">Usa Offer Only</span>
   </button>
 </form>

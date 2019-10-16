@@ -8,6 +8,7 @@ import { IonicPage } from 'ionic-angular';
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
+
 @Component({
   selector: 'order-form',
   templateUrl: 'order-form.html'
@@ -33,7 +34,15 @@ export class OrderFormComponent implements OnInit {
       phone: new FormControl(null, [
         Validators.required,
         Validators.pattern(/[0-9]+/)
-      ])
+      ]),
+      address: new FormControl('', [Validators.required]),
+      city: new FormControl('', [
+        Validators.required,
+        Validators.pattern(/^[a-zA-Z][a-zA-Z,. ]*/)
+      ]),
+      country: new FormControl([Validators.required]),
+      state: new FormControl([Validators.required]),
+      postalCode: new FormControl('', [Validators.required])
     });
   }
 

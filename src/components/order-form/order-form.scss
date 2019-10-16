@@ -7,9 +7,48 @@ order-form {
     margin: 0 8px;
   }
   form {
-    input {
+    padding: 15px;
+    ion-input {
       @extend %input-select;
-      padding: 13px 8px;
+    }
+    div {
+      &.order-form-errors {
+        min-height: 14px;
+        p {
+          min-height: 10px;
+          margin: 2px 8px;
+          font-size: 10px;
+          line-height: 10px;
+          font-weight: 700;
+        }
+      }
+    }
+    ion-row {
+      &.divider {
+        margin: 0 8px;
+        ion-col {
+          p {
+            font-size: 12px;
+            font-weight: 700;
+            color: #626262;
+          }
+        }
+      }
+      ion-col {
+        p {
+          &.phone-info {
+            margin: 0 8px;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+    button {
+      p {
+        &.block {
+          display: block;
+        }
+      }
     }
   }
 }
