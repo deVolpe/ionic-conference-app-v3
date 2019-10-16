@@ -1,0 +1,28 @@
+common-qa {
+  .common-qa-grid {
+    ion-list-header {
+      font-size: 22px;
+      font-weight: 700;
+      color: #2d2d2d;
+    }
+    ion-list {
+      ion-row {
+        ion-col {
+          p {
+            margin-bottom: 10px;
+          }
+          span {
+            font: {
+              size: 18px;
+              weight: 700;
+            }
+          }
+          ion-icon {
+            margin: 2px 5px 0 0;
+            vertical-align: top;
+          }
+        }
+      }
+    }
+  }
+}
