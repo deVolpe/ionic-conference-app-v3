@@ -1,11 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, ToastController } from 'ionic-angular';
-import { NgForm } from '@angular/forms';
-import {
-  ReceiverOptions,
-  ShippingOptions
-} from '../../interfaces/order-form-options';
-
 /**
  * Generated class for the OrderPage page.
  *
