@@ -9,10 +9,11 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { OrderPage } from '../pages/order/order';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   declarations: [MyApp, HomePage, ListPage, OrderPage],
-  imports: [BrowserModule, IonicModule.forRoot(MyApp)],
+  imports: [BrowserModule, IonicModule.forRoot(MyApp), ComponentsModule],
   bootstrap: [IonicApp],
   entryComponents: [MyApp, HomePage, ListPage, OrderPage],
   providers: [

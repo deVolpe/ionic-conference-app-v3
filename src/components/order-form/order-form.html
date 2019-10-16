@@ -1,0 +1,47 @@
+<form [formGroup]="form">
+  <ion-segment>
+    <div class="order-form-errors">
+      <p ion-text [hidden]="firstname.valid || isSubmitted === false" color="danger">
+        {{ inputLabels[0] }} required
+      </p>
+    </div>
+    <div class="order-form-errors">
+      <p ion-text [hidden]="lastname.valid || isSubmitted === false" color="danger">
+        {{ inputLabels[1] }} required
+      </p>
+    </div>
+  </ion-segment>
+  <ion-segment>
+    <ion-input formControlName="firstName" type="text" [placeholder]="inputLabels[0]" required>
+    </ion-input>
+    <ion-input [(ngModel)]="receiver.lastName" name="lastname" #lastname="ngModel" type="text"
+      [placeholder]="inputLabels[1]" required>
+    </ion-input>
+  </ion-segment>
+  <div class="order-form-errors">
+    <p ion-text [hidden]="email.valid || isSubmitted === false" color="danger">
+      {{ inputLabels[2] }} required
+    </p>
+  </div>
+  <ion-input [(ngModel)]="receiver.email" name="email" #email="ngModel" type="email" [placeholder]="inputLabels[2]">
+  </ion-input>
+  <div class="order-form-errorss">
+    <p ion-text [hidden]="phone.valid || isSubmitted === false" color="danger">
+      {{ inputLabels[3] }} required
+    </p>
+  </div>
+  <ion-input [(ngModel)]="receiver.phone" name="phone" #phone="ngModel" type="tel" [placeholder]="inputLabels[3]">
+  </ion-input>
+
+  <ion-row class="divider">
+    <ion-col col-3 col-lg-2 col-md-2 col-sm-3 text-left no-padding>
+      <p text-uppercase>shipping</p>
+    </ion-col>
+  </ion-row>
+
+  <button ion-button (click)="onSubmitOrderForm(orderForm)" color="dark" full large padding-horizontal type="submit">
+    <ion-icon slot="start" name="arrow-forward" margin-right></ion-icon>
+    <p ion-text>Add Payment Information</p>
+    <p ion-text class="block">Usa Offer Only</p>
+  </button>
+</form>

@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { OrderFormComponent } from './order-form/order-form';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [OrderFormComponent],
-  imports: [BrowserModule, FormsModule],
+  imports: [FormsModule, ReactiveFormsModule],
   exports: [OrderFormComponent]
 })
 export class ComponentsModule {}

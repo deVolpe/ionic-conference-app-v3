@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Output, OnInit, EventEmitter } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { IonicPage } from 'ionic-angular';
 
 /**
  * Generated class for the OrderFormComponent component.
@@ -10,13 +12,34 @@ import { Component } from '@angular/core';
   selector: 'order-form',
   templateUrl: 'order-form.html'
 })
-export class OrderFormComponent {
+export class OrderFormComponent implements OnInit {
+  constructor() {}
 
-  text: string;
+  form: FormGroup;
 
-  constructor() {
-    console.log('Hello OrderFormComponent Component');
-    this.text = 'Hello World';
+  @Output() isFormValid = new EventEmitter<boolean>();
+
+  ngOnInit() {
+    this.form = new FormGroup({
+      firstName: new FormControl('', [
+        Validators.required,
+        Validators.pattern(/^[a-zA-Z][a-zA-Z,. ]*/)
+      ]),
+      lastName: new FormControl('', [
+        Validators.required,
+        Validators.pattern(/^[a-zA-Z][a-zA-Z,. ]*/)
+      ]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      phone: new FormControl(null, [
+        Validators.required,
+        Validators.pattern(/[0-9]+/)
+      ])
+    });
   }
 
+  onSubmitOrderForm() {
+    if (this.form.valid) {
+      this.isFormValid.emit();
+    }
+  }
 }
