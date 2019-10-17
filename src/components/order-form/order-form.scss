@@ -14,6 +14,12 @@ order-form {
   form {
     ion-input {
       @extend %input-select;
+      &.ng-invalid.ng-touched {
+        border: 2px solid #b91517;
+      }
+      &.ng-valid.ng-touched {
+        border: 2px solid green;
+      }
     }
     ion-select {
       @extend %input-select;
@@ -34,6 +40,8 @@ order-form {
           font-size: 10px;
           line-height: 10px;
           font-weight: 700;
+          font-family: 'Open Sans', sans-serif;
+          float: left;
         }
       }
     }

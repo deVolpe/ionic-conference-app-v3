@@ -43,9 +43,7 @@ export class OrderFormComponent implements OnInit {
     });
   }
 
-  onSubmitOrderForm(e: any) {
-    e.preventDefault();
-    console.log(this.form.value);
+  onSubmitOrderForm() {
     if (this.form.valid) {
       this.isFormValid.emit(true);
     }

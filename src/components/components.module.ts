@@ -6,10 +6,8 @@ import { OrderFormComponent } from './order-form/order-form';
 import { ReviewsComponent } from './reviews/reviews';
 
 @NgModule({
-  declarations: [OrderFormComponent, CommonQaComponent,
-    ReviewsComponent],
+  declarations: [OrderFormComponent, CommonQaComponent, ReviewsComponent],
   imports: [FormsModule, ReactiveFormsModule, IonicPageModule],
-  exports: [OrderFormComponent, CommonQaComponent,
-    ReviewsComponent]
+  exports: [OrderFormComponent, CommonQaComponent, ReviewsComponent]
 })
 export class ComponentsModule {}
