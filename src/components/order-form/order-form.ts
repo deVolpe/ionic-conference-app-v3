@@ -1,6 +1,5 @@
 import { Component, Output, OnInit, EventEmitter } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { IonicPage } from 'ionic-angular';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 /**
  * Generated class for the OrderFormComponent component.
@@ -14,41 +13,41 @@ import { IonicPage } from 'ionic-angular';
   templateUrl: 'order-form.html'
 })
 export class OrderFormComponent implements OnInit {
-  constructor() {}
+  constructor(private formBuilder: FormBuilder) {}
 
+  countries: string[] = ['United States', 'Canada', 'Australia'];
   form: FormGroup;
 
   @Output() isFormValid = new EventEmitter<boolean>();
 
   ngOnInit() {
-    this.form = new FormGroup({
-      firstName: new FormControl('', [
-        Validators.required,
-        Validators.pattern(/^[a-zA-Z][a-zA-Z,. ]*/)
-      ]),
-      lastName: new FormControl('', [
-        Validators.required,
-        Validators.pattern(/^[a-zA-Z][a-zA-Z,. ]*/)
-      ]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      phone: new FormControl(null, [
-        Validators.required,
-        Validators.pattern(/[0-9]+/)
-      ]),
-      address: new FormControl('', [Validators.required]),
-      city: new FormControl('', [
-        Validators.required,
-        Validators.pattern(/^[a-zA-Z][a-zA-Z,. ]*/)
-      ]),
-      country: new FormControl([Validators.required]),
-      state: new FormControl([Validators.required]),
-      postalCode: new FormControl('', [Validators.required])
+    this.form = this.formBuilder.group({
+      firstName: [
+        '',
+        [Validators.required, Validators.pattern(/^[a-zA-Z][a-zA-Z,. ]*/)]
+      ],
+      lastName: [
+        '',
+        [Validators.required, Validators.pattern(/^[a-zA-Z][a-zA-Z,. ]*/)]
+      ],
+      email: ['', [Validators.required, Validators.email]],
+      phone: [null, [Validators.required, Validators.pattern(/[0-9]+/)]],
+      address: ['', [Validators.required]],
+      city: [
+        '',
+        [Validators.required, Validators.pattern(/^[a-zA-Z][a-zA-Z,. ]*/)]
+      ],
+      country: ['', [Validators.required]],
+      state: ['', [Validators.required]],
+      postalCode: ['', [Validators.required]]
     });
   }
 
-  onSubmitOrderForm() {
+  onSubmitOrderForm(e: any) {
+    e.preventDefault();
+    console.log(this.form.value);
     if (this.form.valid) {
-      this.isFormValid.emit();
+      this.isFormValid.emit(true);
     }
   }
 }
