@@ -1,7 +1,7 @@
-<form [formGroup]="form" n>
+<form [formGroup]="form" (submit)="onSubmitOrderForm($event)">
   <ion-segment>
     <div class="order-form-errors">
-      <p ion-text text-left color="danger"></p>
+      <p ion-text text-left color="danger">lOL</p>
     </div>
     <div class="order-form-errors">
       <p ion-text text-left color="danger"></p>
@@ -14,15 +14,21 @@
     </ion-input>
   </ion-segment>
   <div class="order-form-errors">
-    <p ion-text text-left color="danger"></p>
+    <p ion-text text-left color="danger" *ngIf="form.get('email').errors"></p>
   </div>
-  <ion-input formControlName="email" type="email" placeholder="Email Address">
-  </ion-input>
+  <ion-segment>
+    <ion-input formControlName="email" type="email" placeholder="Email Address">
+    </ion-input>
+  </ion-segment>
+
   <div class="order-form-errors">
     <p ion-text text-left color="danger"></p>
   </div>
-  <ion-input formControlName="phone" type="tel" placeholder="Mobile Phone Number">
-  </ion-input>
+  <ion-segment>
+    <ion-input formControlName="phone" type="tel" placeholder="Mobile Phone Number">
+    </ion-input>
+  </ion-segment>
+
   <ion-row>
     <ion-col col-12 no-padding text-left>
       <p class="phone-info" text-capitalize>* mobile phone number used to provide tracking information</p>
@@ -39,35 +45,44 @@
   <div class="order-form-errors">
     <p ion-text text-left color="danger"></p>
   </div>
-  <ion-input formControlName="address" type="text" placeholder="Address Line 1" no-padding>
-  </ion-input>
+  <ion-segment>
+    <ion-input formControlName="address" type="text" placeholder="Address Line 1">
+    </ion-input>
+  </ion-segment>
   <div class="order-form-errors">
     <p ion-text text-left color="danger"></p>
   </div>
-  <ion-input formControlName="city" type="text" placeholder="City">
-  </ion-input>
+  <ion-segment>
+    <ion-input formControlName="city" type="text" placeholder="City">
+    </ion-input>
+  </ion-segment>
+
   <div class="order-form-errors">
-    <p ion-text text-left color="danger"></p>
+    <p ion-text text-left color="danger">Lol</p>
   </div>
-  <ion-input formControlName="country" type="text" placeholder="Coutry">
-  </ion-input>
+  <ion-segment>
+    <ion-input formControlName="country" type="text" placeholder="Country">
+    </ion-input>
+  </ion-segment>
+
+
   <ion-segment>
     <div class="order-form-errors">
-      <p ion-text text-left color="danger"></p>
+      <p ion-text text-left color="danger">LOl</p>
     </div>
     <div class="order-form-errors">
-      <p ion-text text-left color="danger"></p>
+      <p ion-text text-left color="danger">Lol</p>
     </div>
   </ion-segment>
   <ion-segment>
-    <ion-input formControlName="state" type="text" placeholder="State/Province" no-padding>
+    <ion-input formControlName="state" type="text" placeholder="State/Provice">
     </ion-input>
-    <ion-input formControlName="postalCode" type="text" placeholder="Zip/Postal" no-padding>
+    <ion-input formControlName="postalCode" type="text" placeholder="Zip/Postal">
     </ion-input>
   </ion-segment>
-  <button ion-button color="dark" full large padding-horizontal type="submit">
-    <ion-icon slot="start" name="arrow-forward" margin-right></ion-icon>
-    <span>Add Payment Information</span>
-    <span class="block">Usa Offer Only</span>
+  <button type="submit" class="order-button">
+    <ion-icon slot="start" name="ios-arrow-forward" margin-right></ion-icon>
+    <span text-capitalize>add payment information</span>
+    <span class="block" text-capitalize>usa offer only</span>
   </button>
 </form>
