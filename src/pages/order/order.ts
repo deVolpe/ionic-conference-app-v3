@@ -25,8 +25,6 @@ export class OrderPage {
     'Postal Code'
   ];
 
-  isSubmitted: boolean = false;
-
   constructor(private toastController: ToastController) {}
 
   presentToast() {

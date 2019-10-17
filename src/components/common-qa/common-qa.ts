@@ -11,12 +11,5 @@ import { Component } from '@angular/core';
   templateUrl: 'common-qa.html'
 })
 export class CommonQaComponent {
-
-  text: string;
-
-  constructor() {
-    console.log('Hello CommonQaComponent Component');
-    this.text = 'Hello World';
-  }
-
+  constructor() {}
 }
