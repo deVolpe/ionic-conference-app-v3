@@ -11,8 +11,8 @@ page-order {
     margin: 0;
   }
 
-  %lol {
-    padding: 15px;
+  %form-border {
+    border: 2px solid #ddd;
   }
 
   ion-img {
@@ -21,7 +21,7 @@ page-order {
 
   .container {
     margin: 0 auto;
-    max-width: 1140px;
+    max-width: 1200px;
     min-width: 320px;
   }
 
@@ -99,15 +99,6 @@ page-order {
                       }
                     }
                   }
-                  &.form-navigation {
-                    border: 2px solid #ddd;
-                    ion-col {
-                      ion-row {
-                        &.orange-image {
-                        }
-                      }
-                    }
-                  }
                 }
                 @media (max-width: 991px) {
                   &.delivery-section {
@@ -124,21 +115,54 @@ page-order {
                     }
                   }
                 }
+                &.form-navigation {
+                  @extend %form-border;
+                  padding: 5px 10px 0 10px;
+                  border-top-left-radius: 3px;
+                  border-top-right-radius: 3px;
+                  border-bottom: 4px solid #ff7400;
+                  background-image: linear-gradient(to bottom, #fff, #f3f3f3);
+                  ion-col {
+                    ion-row {
+                      ion-col {
+                        h5 {
+                          font: {
+                            size: 14px;
+                            weight: 800;
+                          }
+                          margin-bottom: 0;
+                          &.current-slide {
+                            color: #ff7400;
+                          }
+                        }
+                        h4 {
+                          font-size: 27px;
+                          font-weight: 700;
+                          margin-bottom: 0;
+                        }
+                        p {
+                          font-size: 12px;
+                        }
+                      }
+                    }
+                    &.orange-image {
+                    }
+                  }
+                }
               }
             }
             &.order-form-grid {
-              ion-row {
-                &.form-border {
-                  border: 2px solid #ddd;
-                  ion-col {
-                    ion-slides {
-                      ion-slide {
-                        ion-row {
-                          p {
-                            &.privacy {
-                              font-size: 12px;
-                              color: #9c9c9c;
-                            }
+              & > ion-row {
+                @extend %form-border;
+                & > ion-col {
+                  padding: 15px !important;
+                  ion-slides {
+                    ion-slide {
+                      ion-row {
+                        span {
+                          &.privacy {
+                            font-size: 12px;
+                            color: #9c9c9c;
                           }
                         }
                       }
