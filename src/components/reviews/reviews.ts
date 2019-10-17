@@ -11,12 +11,5 @@ import { Component } from '@angular/core';
   templateUrl: 'reviews.html'
 })
 export class ReviewsComponent {
-
-  text: string;
-
-  constructor() {
-    console.log('Hello ReviewsComponent Component');
-    this.text = 'Hello World';
-  }
-
+  constructor() {}
 }
