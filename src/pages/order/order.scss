@@ -147,8 +147,15 @@ page-order {
                           font-size: 11px;
                         }
                       }
-                    }
-                    &.orange-image {
+                      &.orange-img {
+                        ion-col {
+                          img {
+                            position: relative;
+                            height: auto;
+                            vertical-align: bottom;
+                          }
+                        }
+                      }
                     }
                   }
                 }

@@ -84,8 +84,13 @@
                   <h4>1</h4>
                 </ion-col>
                 <ion-col col-10 col-sm-11>
-                  <h5 [ngClass]="{'current-slide': true}" text-uppercase>shipping</h5>
+                  <h5 [ngClass]="{'current-slide': !toggleImg}" text-uppercase>shipping</h5>
                   <p text-capitalize text-left>where should we ship your product?</p>
+                </ion-col>
+              </ion-row>
+              <ion-row class="orange-img">
+                <ion-col col-12 text-center no-padding [hidden]="toggleImg">
+                  <img src="assets/imgs/order-form/b-icon-orange.png" alt="">
                 </ion-col>
               </ion-row>
             </ion-col>
@@ -95,11 +100,13 @@
                   <h4>2</h4>
                 </ion-col>
                 <ion-col col-10 col-sm-11>
-                  <h5 [ngClass]="{'current-slide': false}" text-uppercase>quontity</h5>
+                  <h5 [ngClass]="{'current-slide': toggleImg}" text-uppercase>quontity</h5>
                   <p text-capitalize text-left>how many would you like?</p>
                 </ion-col>
-                <ion-col col-12 text-center no-padding>
-                  <img src="" alt="">
+              </ion-row>
+              <ion-row class="orange-img">
+                <ion-col col-12 text-center no-padding [hidden]="!toggleImg">
+                  <img src="assets/imgs/order-form/b-icon-orange.png" alt="">
                 </ion-col>
               </ion-row>
             </ion-col>
@@ -110,7 +117,8 @@
             <ion-col col-12>
               <ion-slides effect="fade">
                 <ion-slide>
-                  <order-form></order-form>
+                  <order-form (isFormValid)="isFormValid($event)" [states]="states" [countries]="countries">
+                  </order-form>
                   <ion-row no-padding>
                     <ion-col col-12 no-padding>
                       <span class="privacy" text-capitalize>
