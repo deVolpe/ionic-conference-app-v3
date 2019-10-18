@@ -13,18 +13,6 @@ import { IonicPage, ToastController } from 'ionic-angular';
   templateUrl: 'order.html'
 })
 export class OrderPage {
-  inputLabels: string[] = [
-    'First Name',
-    'Last Name',
-    'Email Address',
-    'Mobile Phone Number',
-    'Address',
-    'City',
-    'Country',
-    'State/Province',
-    'Postal Code'
-  ];
-
   constructor(private toastController: ToastController) {}
 
   presentToast() {
