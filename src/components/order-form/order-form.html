@@ -1,44 +1,47 @@
 <form [formGroup]="form" (ngSubmit)="onSubmitOrderForm()">
   <ion-segment>
     <div class="order-form-errors">
-      <p ion-text text-left color="danger" *ngIf="form.get('firstName').invalid && form.get('firstName').touched">First
+      <p ion-text text-left color="danger"
+        *ngIf="form.get('firstName').invalid && (form.get('firstName').touched || isSubmitted)">First
         Name <span *ngIf="form.get('firstName').errors['required']">required</span><span
           *ngIf="form.get('firstName').errors.pattern">is invalid</span></p>
     </div>
     <div class="order-form-errors">
-      <p ion-text text-left color="danger" *ngIf="form.get('lastName').invalid && form.get('lastName').touched">Last
+      <p ion-text text-left color="danger"
+        *ngIf="form.get('lastName').invalid && (form.get('lastName').touched || isSubmitted)">Last
         Name <span *ngIf="form.get('lastName').errors['required']">required</span><span
           *ngIf="form.get('lastName').errors.pattern">is invalid</span></p>
     </div>
   </ion-segment>
   <ion-segment>
-    <ion-input formControlName="firstName" type="text" placeholder="First Name"
-      [ngClass]="{'is-invalid': form.get('firstName').invalid}">
-    </ion-input>
-    <ion-input formControlName="lastName" type="text" placeholder="Last Name">
-    </ion-input>
-  </ion-segment>
-  <div class="order-form-errors">
-    <p ion-text text-left color="danger" *ngIf="form.get('email').invalid && form.get('email').touched">
-      Email <span *ngIf="form.get('email').errors.required">required</span>
-      <span *ngIf="form.get('email').errors.email">is invalid</span>
-    </p>
-  </div>
-  <ion-segment>
-    <ion-input formControlName="email" type="email" placeholder="Email Address">
-    </ion-input>
-  </ion-segment>
+    <input formControlName="firstName" type="text" placeholder="First Name" required
+      [ngClass]="{'validated': isSubmitted}" />
 
+    <input formControlName="lastName" type="text" placeholder="Last Name" required
+      [ngClass]="{'validated': isSubmitted}" />
+
+  </ion-segment>
   <div class="order-form-errors">
-    <p ion-text text-left color="danger" *ngIf="form.get('phone').invalid && form.get('phone').touched">
-      Phone <span *ngIf="form.get('phone').errors.required">required</span>
-      <span *ngIf="form.get('phone').errors.pattern">is invalid</span>
+    <p ion-text text-left color="danger"
+      *ngIf="form.get('email').invalid && (form.get('email').touched || isSubmitted)">
+      Email <span *ngIf="form.get('email').errors.required">required</span>
+      <span *ngIf="form.get('email').errors.email && form.get('email').value">is invalid</span>
     </p>
   </div>
-  <ion-segment>
-    <ion-input formControlName="phone" type="tel" placeholder="Mobile Phone Number">
-    </ion-input>
-  </ion-segment>
+
+  <input formControlName="email" type="email" placeholder="Email Address" required
+    [ngClass]="{'validated': isSubmitted}" />
+  <div class="order-form-errors">
+    <p ion-text text-left color="danger"
+      *ngIf="form.get('phone').invalid && (form.get('phone').touched || isSubmitted)">
+      Phone <span *ngIf="form.get('phone').errors.required">required</span>
+      <span *ngIf="form.get('phone').errors.pattern">contains invalid character</span>
+    </p>
+  </div>
+
+  <input formControlName="phone" type="tel" placeholder="Mobile Phone Number" required
+    [ngClass]="{'validated': isSubmitted}" />
+
 
   <ion-row>
     <ion-col col-12 no-padding text-left>
@@ -54,53 +57,57 @@
     </ion-col>
   </ion-row>
   <div class="order-form-errors">
-    <p ion-text text-left color="danger" *ngIf="form.get('address').invalid && form.get('address').touched">
+    <p ion-text text-left color="danger"
+      *ngIf="form.get('address').invalid && (form.get('address').touched || isSubmitted)">
       Address <span *ngIf="form.get('address').errors.required">required</span>
     </p>
   </div>
-  <ion-segment>
-    <ion-input formControlName="address" type="text" placeholder="Address Line 1">
-    </ion-input>
-  </ion-segment>
-  <div class="order-form-errors">
-    <p ion-text text-left color="danger" *ngIf="form.get('city').invalid && form.get('city').touched">
-      City <span *ngIf="form.get('city').errors.required">required</span>
-      <span *ngIf="form.get('city').errors.patter">is invalid</span>
-    </p>
-  </div>
-  <ion-segment>
-    <ion-input formControlName="city" type="text" placeholder="City">
-    </ion-input>
-  </ion-segment>
+
+  <input formControlName="address" type="text" placeholder="Address Line 1" required
+    [ngClass]="{'validated': isSubmitted}" />
 
   <div class="order-form-errors">
-    <p ion-text text-left color="danger" *ngIf="form.get('country').invalid && form.get('country').touched">
+    <p ion-text text-left color="danger" *ngIf="form.get('city').invalid && (form.get('city').touched || isSubmitted)">
+      City <span *ngIf="form.get('city').errors.required">required</span>
+      <span *ngIf="form.get('city').errors.pattern">is invalid</span>
+    </p>
+  </div>
+
+  <input formControlName="city" type="text" placeholder="City" required [ngClass]="{'validated': isSubmitted}" />
+
+  <div class=" order-form-errors">
+    <p ion-text text-left color="danger"
+      *ngIf="form.get('country').invalid && (form.get('country').touched || isSubmitted)">
       Country <span *ngIf="form.get('country').errors.required">required</span>
     </p>
   </div>
-  <ion-segment>
-    <ion-input formControlName="country" type="text" placeholder="Country">
-    </ion-input>
-  </ion-segment>
 
+  <select formControlName="country" required [ngClass]="{'validated': isSubmitted}">
+    <option [value]="country" *ngFor="let country of countries">{{ country }}</option>
+  </select>
 
   <ion-segment>
     <div class="order-form-errors">
-      <p ion-text text-left color="danger" *ngIf="form.get('state').invalid && form.get('state').touched">
+      <p ion-text text-left color="danger"
+        *ngIf="form.get('state').invalid && (form.get('state').touched || isSubmitted)">
         State <span *ngIf="form.get('state').errors.required">required</span>
       </p>
     </div>
     <div class="order-form-errors">
-      <p ion-text text-left color="danger" *ngIf="form.get('postalCode').invalid && form.get('postalCode').touched">
+      <p ion-text text-left color="danger"
+        *ngIf="form.get('postalCode').invalid && (form.get('postalCode').touched || isSubmitted)">
         Zip/Postal Code <span *ngIf="form.get('postalCode').errors.required">required</span>
       </p>
     </div>
   </ion-segment>
   <ion-segment>
-    <ion-input formControlName="state" type="text" placeholder="State/Province">
-    </ion-input>
-    <ion-input formControlName="postalCode" type="text" placeholder="Zip/Postal">
-    </ion-input>
+    <select formControlName="state" required [ngClass]="{'validated': isSubmitted}">
+      <option value="" disabled selected>State/Province</option>
+      <option [value]="state" *ngFor="let state of states">{{ state }}</option>
+    </select>
+    <input formControlName="postalCode" type="text" placeholder="Zip/Postal" required
+      [ngClass]="{'validated': isSubmitted}" />
+
   </ion-segment>
 
   <button type="submit" class="order-button">

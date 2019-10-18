@@ -17,6 +17,7 @@ export class OrderFormComponent implements OnInit {
 
   countries: string[] = ['United States', 'Canada', 'Australia'];
   form: FormGroup;
+  isSubmitted: boolean = false;
 
   @Output() isFormValid = new EventEmitter<boolean>();
 
@@ -44,8 +45,11 @@ export class OrderFormComponent implements OnInit {
   }
 
   onSubmitOrderForm() {
+    this.isSubmitted = true;
+    console.log(this.form.get('firstName'));
+
     if (this.form.valid) {
-      this.isFormValid.emit(true);
+      // this.isFormValid.emit(true);
     }
   }
 }
