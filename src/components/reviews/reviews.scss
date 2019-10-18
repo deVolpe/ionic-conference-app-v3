@@ -1,3 +1,24 @@
 reviews {
-
+  ion-list-header {
+    ion-label {
+      font-size: 22px;
+      font-weight: 700;
+      color: #2d2d2d;
+      text-decoration: underline;
+    }
+  }
+  ion-list {
+    ion-row {
+      ion-col {
+        div {
+          font-size: 16px;
+          font-weight: 700;
+        }
+        p {
+          margin-bottom: 10px;
+          margin-top: 0;
+        }
+      }
+    }
+  }
 }
