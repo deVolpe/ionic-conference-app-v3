@@ -1,4 +1,4 @@
-import { Component, Output, OnInit, EventEmitter } from '@angular/core';
+import { Component, Output, OnInit, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 /**
@@ -15,11 +15,13 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class OrderFormComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {}
 
-  countries: string[] = ['United States', 'Canada', 'Australia'];
   form: FormGroup;
+
   isSubmitted: boolean = false;
 
   @Output() isFormValid = new EventEmitter<boolean>();
+  @Input() states: string[];
+  @Input() countries: string[];
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -32,7 +34,7 @@ export class OrderFormComponent implements OnInit {
         [Validators.required, Validators.pattern(/^[a-zA-Z][a-zA-Z,. ]*/)]
       ],
       email: ['', [Validators.required, Validators.email]],
-      phone: [null, [Validators.required, Validators.pattern(/[0-9]+/)]],
+      phone: [null, [Validators.required, Validators.pattern(/^\d+$/)]],
       address: ['', [Validators.required]],
       city: [
         '',
@@ -46,10 +48,9 @@ export class OrderFormComponent implements OnInit {
 
   onSubmitOrderForm() {
     this.isSubmitted = true;
-    console.log(this.form.get('firstName'));
 
     if (this.form.valid) {
-      // this.isFormValid.emit(true);
+      this.isFormValid.emit(true);
     }
   }
 }
