@@ -13,7 +13,19 @@ import { IonicPage, ToastController } from 'ionic-angular';
   templateUrl: 'order.html'
 })
 export class OrderPage {
+  toggleImg: boolean = false;
+
+  states: string[] = ['Illinois'];
+  countries: string[] = ['United States', 'Canada', 'Austalia'];
+
   constructor(private toastController: ToastController) {}
+
+  isFormValid(valid: any) {
+    if (valid) {
+      this.toggleImg = valid;
+      this.presentToast();
+    }
+  }
 
   presentToast() {
     const toast = this.toastController.create({
