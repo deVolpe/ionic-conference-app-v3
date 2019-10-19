@@ -40,7 +40,7 @@ export class OrderFormComponent implements OnInit {
         '',
         [Validators.required, Validators.pattern(/^[a-zA-Z][a-zA-Z,. ]*/)]
       ],
-      country: ['', [Validators.required]],
+      country: ['United States', [Validators.required]],
       state: ['', [Validators.required]],
       postalCode: ['', [Validators.required]]
     });
