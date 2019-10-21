@@ -1,8 +1,12 @@
-<form [formGroup]="form" (ngSubmit)="onSubmitPaymentForm()">
+<form [formGroup]="form" (ngSubmit)="onSubmitPaymentForm()" class="payment-form">
   <ion-row>
-    <ion-col col-8>
+    <ion-col col-8 no-padding>
       <ion-label>Credit Card Number:</ion-label>
       <input type="number" name="credit-number">
+    </ion-col>
+    <ion-col col-4 no-padding>
+      <ion-label>CVV/CVC</ion-label>
+      <input type="number" name="cvv-number" minlength="3" maxlength="3">
     </ion-col>
   </ion-row>
 </form>
