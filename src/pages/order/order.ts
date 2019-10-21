@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, ToastController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, ToastController, Slides } from 'ionic-angular';
 /**
  * Generated class for the OrderPage page.
  *
@@ -13,8 +13,9 @@ import { IonicPage, ToastController } from 'ionic-angular';
   templateUrl: 'order.html'
 })
 export class OrderPage {
-  toggleImg: boolean = false;
+  @ViewChild(Slides) slides: Slides;
 
+  toggleImg: boolean = false;
   states: string[] = ['Illinois'];
   countries: string[] = ['United States', 'Canada', 'Austalia'];
 
@@ -23,6 +24,7 @@ export class OrderPage {
   isFormValid(valid: any) {
     if (valid) {
       this.toggleImg = valid;
+      this.slides.slideNext();
       this.presentToast();
     }
   }

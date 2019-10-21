@@ -115,7 +115,7 @@
         <ion-grid class="order-form-grid" no-padding>
           <ion-row>
             <ion-col col-12>
-              <ion-slides effect="fade">
+              <ion-slides>
                 <ion-slide>
                   <order-form (isFormValid)="isFormValid($event)" [states]="states" [countries]="countries">
                   </order-form>
@@ -128,7 +128,7 @@
                   </ion-row>
                 </ion-slide>
                 <ion-slide>
-
+                  <payment-form></payment-form>
                 </ion-slide>
               </ion-slides>
             </ion-col>
